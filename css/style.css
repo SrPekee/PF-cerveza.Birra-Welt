@@ -1,0 +1,158 @@
+/* menu en base colores */
+:root {
+    --titulo: #606C38; 
+    --subtitulo: #283618;
+    --fondo: #e9daab;
+    --secundario: #ebc396;
+    --fondo-texto: #da9355; 
+}
+
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+main {
+    background-color: #e9daab;
+    padding-top: 80px;
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    line-height: 1.6;
+    background-color: var(--fondo-texto);
+    color: #343a40;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+p {
+    margin-bottom: 20px;
+    background-color: var(--secundario);
+}
+
+ul, ol {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: auto;
+    margin: auto;
+}
+
+/* Estilos específicos para la navegación */
+#header {
+    background-color: var(--titulo);
+    padding: 10px 0;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--subtitulo);
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+.cont-menu {
+    margin-top: 10px;
+}
+
+.cont-menu ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+.cont-menu ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.cont-menu ul li a {
+    text-decoration: none;
+    color: var(--secundario);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cont-menu ul li a:hover {
+    background-color: #555;
+}
+
+.nav-link {
+    background-color: var(--subtitulo);
+    color: var(--fondo-texto);
+}
+
+.img-container {
+    display:inline-flex;
+    justify-content: space-between;
+    width: 25%;
+    margin-bottom: 2em;
+    color: var(--fondo-texto);
+    padding: 10px 20px 10px 20px;
+}
+/* Estilos para las secciones */
+section {
+    padding: 50px 0;
+}
+
+section article {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+form {
+    text-align: center;
+    background-color: var(--fondo);
+    box-sizing: border-box;
+}
+
+.inicio {
+    text-align: center;
+}
+
+.medio {
+    text-align: center;
+}
+
+.estilo2 {
+    text-align: center;
+}
+
+.tipo-cerveza {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+
+.pintas {
+    display:inline-flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-bottom: 2em;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: var(--subtitulo);
+    color: #343a40;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 0;
+}
