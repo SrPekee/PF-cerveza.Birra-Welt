@@ -1,0 +1,233 @@
+/* variables */
+$color-titulo: #606C38;
+$color-subtitulo: #283618;
+$color-fondo: #e9daab;
+$color-secundario: #ebc396;
+$color-fondo-texto: #da9355;
+$margin-bottom: 20px;
+$padding-default: 10px;
+$padding-large: 50px;
+
+/* breakpoints */
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+/* mixins */
+@mixin text-center {
+    text-align: center;
+}
+
+@mixin padding($padding) {
+    padding: $padding;
+}
+
+@mixin transition($property, $duration, $timing) {
+    transition: $property $duration $timing;
+}
+
+@mixin responsive($property, $value-sm, $value-md, $value-lg, $value-xl) {
+    #{$property}: $value-sm;
+
+    @media (min-width: $breakpoint-sm) {
+        #{$property}: $value-sm;
+    }
+    @media (min-width: $breakpoint-md) {
+        #{$property}: $value-md;
+    }
+    @media (min-width: $breakpoint-lg) {
+        #{$property}: $value-lg;
+    }
+    @media (min-width: $breakpoint-xl) {
+        #{$property}: $value-xl;
+    }
+}
+
+/* reseteo para estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* style general */
+main {
+    background-color: $color-fondo;
+    padding-top: 80px;
+    @include responsive(padding-top, 60px, 80px, 100px, 120px);
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    line-height: 1.6;
+    background-color: $color-fondo-texto;
+    color: #343a40;
+    @include responsive(font-size, 14px, 16px, 18px, 20px);
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: $margin-bottom;
+    @include text-center;
+    @include padding(5px);
+    @include responsive(font-size, 1.5em, 1.75em, 2em, 2.25em);
+}
+
+p {
+    margin-bottom: $margin-bottom;
+    background-color: $color-secundario;
+    @include responsive(font-size, 14px, 16px, 18px, 20px);
+}
+
+ul, ol {
+    margin-bottom: $margin-bottom;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: auto;
+    margin: auto;
+    @include responsive(width, 100%, 90%, 80%, 70%);
+}
+
+/* Estilos para la navegación */
+#header {
+    background-color: $color-titulo;
+    @include padding($padding-default 0);
+    @include responsive(padding, $padding-default, $padding-default, 15px, 20px);
+}
+
+.titulo {
+    @include text-center;
+    color: $color-subtitulo;
+    margin-bottom: 0;
+    font-size: 24px;
+    @include responsive(font-size, 20px, 24px, 28px, 32px);
+}
+
+.cont-menu {
+    margin-top: $padding-default;
+
+    ul {
+        list-style-type: none;
+        @include text-center;
+
+        li {
+            display: inline;
+            margin-right: $padding-default;
+
+            a {
+                text-decoration: none;
+                color: $color-secundario;
+                @include padding(5px 10px);
+                border-radius: 5px;
+                @include transition(background-color, 0.3s, ease);
+
+                &:hover {
+                    background-color: #555;
+                }
+            }
+        }
+    }
+}
+
+.nav-link {
+    background-color: $color-subtitulo;
+    color: $color-fondo-texto;
+}
+
+.img-container {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 25%;
+    margin-bottom: 2em;
+    color: $color-fondo-texto;
+    @include padding(10px 20px);
+    @include responsive(width, 100%, 75%, 50%, 25%);
+}
+
+// Estilos para las secciones
+section {
+    @include padding($padding-large 0);
+    @include responsive(padding, $padding-large, $padding-large, 70px, 80px);
+
+    article {
+        @include text-center;
+        margin-bottom: 0;
+    }
+}
+
+form {
+    @include text-center;
+    background-color: $color-fondo;
+    box-sizing: border-box;
+    @include responsive(padding, 15px, 20px, 25px, 30px);
+}
+
+.inicio,
+.medio,
+.estilo2 {
+    @include text-center;
+}
+
+.tipo-cerveza {
+    margin-bottom: $padding-default;
+    list-style-type: none;
+}
+
+.pintas {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-bottom: 2em;
+    @include responsive(width, 100%, 80%, 70%, 60%);
+}
+
+/* footer */
+footer {
+    background-color: $color-subtitulo;
+    color: #343a40;
+    @include padding($padding-default 0);
+    @include text-center;
+    @include responsive(padding, 10px, 15px, 20px, 25px);
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+/* Responsive para imágenes y mapa */
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.map-responsive {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // Aspect ratio 16:9
+    position: relative;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+}
+
+/* aplicar tipo responsive a imágenes y mapa */
+img,
+.container img {
+    @extend .img-responsive;
+}
+
+.map-container {
+    @extend .map-responsive;
+}
