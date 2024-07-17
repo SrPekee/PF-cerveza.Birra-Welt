@@ -140,14 +140,15 @@ img {
     color: $color-fondo-texto;
 }
 
-.img-container {
+.img-container,
+.img-fluid {
     display: inline-flex;
     justify-content: space-between;
     width: 25%;
     margin-bottom: 2em;
     color: $color-fondo-texto;
     @include padding(10px 20px);
-    @include responsive(width, 100%, 75%, 50%, 25%);
+    @include responsive(width, 90%, 75%, 50%, 25%);
 }
 
 // Estilos para las secciones
