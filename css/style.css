@@ -106,6 +106,12 @@ img {
     padding: 10px 20px 10px 20px;
 }
 
+.map-container {
+    width: auto;
+    display: grid;
+    margin: auto;
+
+}
 /* Estilos para las secciones */
 section {
     padding: 50px 0;
