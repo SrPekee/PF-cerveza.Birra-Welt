@@ -123,9 +123,28 @@ section article {
 }
 
 form {
-    text-align: center;
+    width: 100%;
+    max-width: 500px;
     background-color: var(--fondo);
     box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 0 10px;
+    }
+}
+
+.form-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+}
+
+@media (max-widht: 768px){
+    .form-container {
+        justify-content: center;
+    }
 }
 
 .inicio {
@@ -144,7 +163,6 @@ form {
     margin-bottom: 10px;
     list-style-type: none;
 }
-
 
 .pintas {
     display:inline-flex;
