@@ -31,18 +31,22 @@
             <!-- Nav Bootstrap -->
             <ul class="nav nav-pills nav-fill">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Inicio</a>
+                    <a class="nav-link active" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./html/nosotros.html">Nosotros</a>
+                    <a class="nav-link" href="./html/nosotros.html">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./index.html#pryoectos">Proyectos</a>
+                    <a class="nav-link" href="./index.html#pryoectos">Proyectos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./html/contacto.html">Contacto</a>
+                    <a class="nav-link" href="./html/contacto.html">Contacto</a>
                 </li>
-              </ul>
+                <section id="carrito-section">
+                <li class="nav-item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </li>
+            </ul>
     </header>
 
     <main>
@@ -93,30 +97,34 @@
                         <div class="col-md-6">
                             <ul class="tipos">
                                 <div data-aos="fade-down">
-                                    <li class="tipo-cerveza">Cerveza IPA's (Indian Pale Ale)</li>
+                                    <li class="tipo-cerveza" data-name="IPA" data-price="1100">Cerveza IPA's (Indian Pale Ale)</li>
                                     <img src="./assets/ipa1.jpg" class="img-fluid" alt="Cerveza IPA">
                                     <p>Una fascinante anécdota marca el origen del estilo de cerveza Indian Pale Ale...
                                     </p>
+                                    <button class="add-to-cart">Añadir al carrito</button>
                                 </div>
                                 <div data-aos="fade-down">
-                                    <li class="tipo-cerveza">Cerveza Lager</li>
+                                    <li class="tipo-cerveza" data-name="Lager" data-price="1000">Cerveza Lager</li>
                                     <img src="./assets/lager1.jpg" class="img-fluid"
                                         alt="Cerveza Lager">
                                     <p>Es el más conocido del mundo pero no el más antiguo...</p>
+                                    <button class="add-to-cart">Añadir al carrito</button>
                                 </div>
                                 <div data-aos="fade-down">
-                                    <li class="tipo-cerveza">Cerveza Rojiza</li>
+                                    <li class="tipo-cerveza" data-name="Rojiza" data-price="1200">Cerveza Rojiza</li>
                                     <img src="./assets/roja1.jpg" class="img-fluid"
                                         alt="Cerveza Rojiza">
                                     <p>El atractivo color rubí de las cervezas rojas esconde un mayor cuerpo...</p>
+                                    <button class="add-to-cart">Añadir al carrito</button>
                                 </div>
                                 <div data-aos="fade-down">
-                                    <li class="tipo-cerveza">Cerveza Porter & Stout</li>
+                                    <li class="tipo-cerveza" data-name="Porter & Stout" data-price="1300">Cerveza Porter & Stout</li>
                                     <img src="./assets/porter1.jpg" class="img-fluid"
                                         alt="Cerveza Porter">
                                     <img src="./assets/stout1.jpg" class="img-fluid"
                                         alt="Cerveza Stout">
                                     <p>He aquí dos de los estilos de cerveza posiblemente más reconocidos...</p>
+                                    <button class="add-to-cart">Añadir al carrito</button>
                                 </div>
                             </ul>
                         </div>
@@ -195,7 +203,8 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS y Popper.js -->
+    <!-- Bootstrap js, Popper.js y Archivo Js  -->
+    <script src="./scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
@@ -203,5 +212,22 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
             AOS.init();
+        </script>
+    <!--Srcipt del botton "añadir carrito"-->
+        <script>
+                const cart = [];
+
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const beerItem = this.previousElementSibling.previousElementSibling;
+                    const name = beerItem.getAttribute('data-name');
+                    const price = beerItem.getAttribute('data-price');
+                    const item = { name, price };
+        
+                    cart.push(item);
+                    console.log(cart);
+                    alert(`${name} añadida al carrito!`);
+    });
+});
         </script>
 </html>
